@@ -1,0 +1,200 @@
+# --- population specific parameters ---
+# --- This config file uses the episodic runner, which is useful for testing locally ---
+
+# Global parameter, indep of agent type
+runner_function: "population"
+runner: "parallel_runner_population"
+batch_size_run: 10 # Number of env at the same time
+name: "elo_all"
+use_cuda: False
+
+load_timesteps_spacing: 200000 #nb of timesteps between two tests
+
+matchmaking: "fair_fixed_elo"
+
+save_model_interval: 20000
+save_model: True # Save the models to disk
+
+use_tensorboard: True
+
+n_agent_type: 4
+
+log_interval: 20000
+runner_log_interval: 20000
+learner_log_interval: 20000
+
+t_max: 20050000
+test_interval: 20000
+test_nepisode: 200000
+test_greedy: False
+
+agent_type_1:
+  number: 10 # number of agent of this type in the population
+  mac: "basic_mac"
+  action_selector: "epsilon_greedy"
+  epsilon_start: 1.0
+  epsilon_finish: 0.05
+  epsilon_anneal_time: 2000000
+
+  gamma: 0.99
+
+  buffer_size: 5000
+
+  target_update_interval: 200
+
+  agent_output_type: "q"
+  learner: "qv_learner"
+  mixer: "qmix"
+  vmixer: "vmix"
+  mixing_embed_dim: 32
+
+  learner_log_interval: 2000 # Log training stats every {} timesteps
+
+
+  # --- RL hyperparameters ---
+  batch_size: 32 # Number of episodes to train on
+  lr: 0.0005 # Learning rate for agents
+  critic_lr: 0.0005 # Learning rate for critics
+  optim_alpha: 0.99 # RMSProp alpha
+  optim_eps: 0.00001 # RMSProp epsilon
+  grad_norm_clip: 10 # Reduce magnitude of gradients above this L2 norm
+
+  # --- Agent parameters ---
+  agent: "rnn" # Default rnn agent
+  rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
+  obs_agent_id: True # Include the agent's one_hot id in the observation
+  obs_last_action: True # Include the agent's last action (one_hot) in the observation
+
+  # --- Logging options ---
+  save_model: [True, True, True, True, True, True, True, True, True, True] # Save the models to disk
+  save_model_interval: [20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000] # Save models after this many timesteps
+  checkpoint_path: ["", "", "", "", "", "", "", "", "", ""] # Load a checkpoint from this path
+  load_step: [10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000] # Load model trained on this many timesteps (0 if choose max possible)
+
+agent_type_2:
+  number: 10 # number of agent of this type in the population
+  buffer_size: 5000
+
+  # update the target network every {} episodes
+  target_update_interval: 200
+
+  learner_log_interval: 20000 # Log training stats every {} timesteps
+
+  # use epsilon greedy action selector
+  action_selector: "epsilon_greedy"
+  epsilon_start: 1.0
+  epsilon_finish: 0.05
+  epsilon_anneal_time: 2000000
+
+  agent_output_type: "q"
+  learner: "maven_learner"
+  double_q: True
+  mixer: "qmix"
+  mixing_embed_dim: 32
+  skip_connections: False
+  hyper_initialization_nonzeros: 0
+
+  mac: "maven_mac"
+  noise_dim: 16
+  noise_embedding_dim: 32
+
+  mi_loss: 0.001
+  rnn_discrim: True
+  rnn_agg_size: 32
+
+  discrim_size: 64
+  discrim_layers: 3
+
+  noise_bandit: True
+  noise_bandit_lr: 0.1
+  noise_bandit_epsilon: 0.2
+
+  mi_intrinsic: False
+  mi_scaler: 0.1
+  hard_qs: False
+
+  bandit_epsilon: 0.1
+  bandit_iters: 8
+  bandit_batch: 64
+  bandit_buffer: 512
+  bandit_reward_scaling: 20
+  bandit_use_state: True
+  bandit_policy: True
+
+  # --- RL hyperparameters ---
+  gamma: 0.99
+  batch_size: 32 # Number of episodes to train on
+  lr: 0.0005 # Learning rate for agents
+  critic_lr: 0.0005 # Learning rate for critics
+  recurrent_critic: False
+  optim_alpha: 0.99 # RMSProp alpha
+  optim_eps: 0.00001 # RMSProp epsilon
+  grad_norm_clip: 10 # Reduce magnitude of gradients above this L2 norm
+  entropy_scaling: 0.001
+
+
+  # --- Agent parameters ---
+  agent: "maven_rnn" # Default rnn agent
+  rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
+  obs_agent_id: True # Include the agent's one_hot id in the observation
+  obs_last_action: True # Include the agent's last action (one_hot) in the observation
+
+  # --- Logging options ---
+  save_model: [True, True, True, True, True, True, True, True, True, True] # Save the models to disk
+  save_model_interval: [20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000] # Save models after this many timesteps
+  checkpoint_path: ["", "", "", "", "", "", "", "", "", ""] # Load a checkpoint from this path
+  load_step: [10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000] # Load model trained on this many timesteps (0 if choose max possible)
+
+agent_type_3:
+  number: 10 # number of agent of this type in the population
+  mac: "basic_mac"
+  action_selector: "epsilon_greedy"
+  epsilon_start: 1.0
+  epsilon_finish: 0.05
+  epsilon_anneal_time: 2000000
+
+  gamma: 0.99
+
+  buffer_size: 5000
+
+  target_update_interval: 200
+
+  agent_output_type: "q"
+  learner: "q_learner"
+  double_q: True
+  mixer: "qmix"
+  mixing_embed_dim: 32
+
+  learner_log_interval: 2000 # Log training stats every {} timesteps
+
+
+  # --- RL hyperparameters ---
+  batch_size: 32 # Number of episodes to train on
+  lr: 0.0005 # Learning rate for agents
+  critic_lr: 0.0005 # Learning rate for critics
+  optim_alpha: 0.99 # RMSProp alpha
+  optim_eps: 0.00001 # RMSProp epsilon
+  grad_norm_clip: 10 # Reduce magnitude of gradients above this L2 norm
+
+  # --- Agent parameters ---
+  agent: "rnn" # Default rnn agent
+  rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
+  obs_agent_id: True # Include the agent's one_hot id in the observation
+  obs_last_action: True # Include the agent's last action (one_hot) in the observation
+
+  # --- Logging options ---
+  save_model: [True, True, True, True, True, True, True, True, True, True] # Save the models to disk
+  save_model_interval: [20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000, 20000] # Save models after this many timesteps
+  checkpoint_path: ["", "", "", "", "", "", "", "", "", ""] # Load a checkpoint from this path
+  load_step: [10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000, 10000000] # Load model trained on this many timesteps (0 if choose max possible)
+
+agent_type_4:
+  number: 1 # number of agent of this type in the population
+  mac: "do_not_mac"
+  learner: "do_not_learn"
+
+  # --- Logging options ---
+  save_model: [False] # Save the models to disk
+  save_model_interval: [20000] # Save models after this many timesteps
+  checkpoint_path: [""] # Load a checkpoint from this path
+  load_step: [0] # Load model trained on this many timesteps (0 if choose max possible)
