@@ -4,7 +4,7 @@ This is the code of the paper entilted [Value-based CTDE Methods in Symmetric Tw
 
 
 
-This code is a modification of the [former pymarl](github.com/oxwhirl/pymarl) to allow to train several teams at the same time in a competitive mode in the [competitive SMAC](https://github.com/paleroy/competSmac) environment.
+This code is a modification of the [former pymarl](https://github.com/oxwhirl/pymarl) to allow to train several teams at the same time in a competitive mode in the [competitive SMAC](https://github.com/paleroy/competSmac) environment.
 
 This code has been implemented
 
