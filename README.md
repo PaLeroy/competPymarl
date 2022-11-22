@@ -19,7 +19,7 @@ Install the python virtual environment (**python 3.6** required):
 ```
 
 
-Set up StarCraft II(on Linux). Check [competitive SMAC](github.com/paleroy/competSmac) for more details:
+Set up StarCraft II(on Linux). Check [competitive SMAC](https://github.com/paleroy/competSmac) for more details:
 
 ```shell
 bash install_sc2.sh
