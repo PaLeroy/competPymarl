@@ -83,7 +83,7 @@ The heuristic is implemented in the [competitive SMAC](https://github.com/palero
 
 # Citing competitive PYMARL 
 
-If you use QVMix implementation in your own work, please cite our paper: [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](https://arxiv.org/abs/2211.11886).
+If you use the competitive PYMARL implementation in your own work, please cite our paper: [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](https://arxiv.org/abs/2211.11886).
 
 ```tex
 @inproceedings{leroy2022twoteam,
