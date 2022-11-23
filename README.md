@@ -1,6 +1,6 @@
 # Competitive pymarl
 
-This is the code of the paper entilted [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](TDB).
+This is the code of the paper entilted [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](https://arxiv.org/abs/2211.11886).
 
 
 
@@ -41,7 +41,7 @@ python3.6 -m smac.examples.random_agents_compet.py
 deactivate
 ```
 
-## Training instructions
+# Training instructions
 You can train nine types of team with the following command:
 You can change the map by modifying the map_name from '3m_compet' to '3s5z_compet'.
 
@@ -65,7 +65,7 @@ Here is the list of train config that are self-explanatory:
 - `popu_maven_self`
 - `popu_maven_5`
 
-## Testing instructions
+# Testing instructions
 Once trained, it is possible to test your teams in different configurations.
 
 We provide all the test scripts executed to compute Elo scores after training or win-rates along training.
@@ -77,5 +77,19 @@ For the win-rates, scripts have a name prefixed "run_test".
 
 All those scripts sometimes require arguments that are self-explanatory.
 
+# Heuristic
+The heuristic is implemented in the [competitive SMAC](https://github.com/paleroy/competSmac) and can be modified.
 
 
+# Citing competitive PYMARL 
+
+If you use QVMix implementation in your own work, please cite our paper: [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](https://arxiv.org/abs/2211.11886).
+
+```tex
+@inproceedings{leroy2022twoteam,
+title={Value-based {CTDE} Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition},
+author={Leroy, Pascal and Pisane, Jonathan and Ernst, Damien},
+booktitle={Deep Reinforcement Learning Workshop NeurIPS 2022},
+year={2022}
+}
+```
