@@ -1,6 +1,6 @@
 # Competitive pymarl
 
-This is the code of the paper entilted [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](https://arxiv.org/abs/2211.11886).
+This is the code of our paper entilted [Value-based CTDE Methods in Symmetric Two-team Markov Game: from Cooperation to Team Competition](https://arxiv.org/abs/2211.11886).
 
 
 
